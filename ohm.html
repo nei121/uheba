@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Закон Ома - Электрорасчёты</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">⚡ Электрорасчёты</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="ohm.html" class="active">Закон Ома</a></li>
+                <li><a href="power.html">Мощность</a></li>
+                <li><a href="resistor.html">Резисторы</a></li>
+                <li><a href="voltage-loss.html">Потери U</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calculator-section">
+            <h1>📐 Закон Ома</h1>
+            <p class="formula">U = I × R</p>
+            
+            <div class="calculator-card">
+                <h3>Калькулятор</h3>
+                <p>Выберите неизвестную величину:</p>
+                
+                <div class="calc-type">
+                    <button class="calc-btn active" data-calc="voltage">Напряжение (U)</button>
+                    <button class="calc-btn" data-calc="current">Ток (I)</button>
+                    <button class="calc-btn" data-calc="resistance">Сопротивление (R)</button>
+                </div>
+
+                <div class="input-group" id="voltage-group">
+                    <label>Ток (I), А</label>
+                    <input type="number" id="current" placeholder="Введите ток">
+                    <label>Сопротивление (R), Ом</label>
+                    <input type="number" id="resistance" placeholder="Введите сопротивление">
+                    <button class="btn-calc" id="calc-voltage">Рассчитать напряжение</button>
+                    <div class="result" id="voltage-result"></div>
+                </div>
+
+                <div class="input-group hidden" id="current-group">
+                    <label>Напряжение (U), В</label>
+                    <input type="number" id="voltage" placeholder="Введите напряжение">
+                    <label>Сопротивление (R), Ом</label>
+                    <input type="number" id="resistance2" placeholder="Введите сопротивление">
+                    <button class="btn-calc" id="calc-current">Рассчитать ток</button>
+                    <div class="result" id="current-result"></div>
+                </div>
+
+                <div class="input-group hidden" id="resistance-group">
+                    <label>Напряжение (U), В</label>
+                    <input type="number" id="voltage2" placeholder="Введите напряжение">
+                    <label>Ток (I), А</label>
+                    <input type="number" id="current2" placeholder="Введите ток">
+                    <button class="btn-calc" id="calc-resistance">Рассчитать сопротивление</button>
+                    <div class="result" id="resistance-result"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 СилаВольта. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

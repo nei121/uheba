@@ -1,0 +1,406 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.5;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+header {
+    background: #1e2a4a;
+    border-bottom: 3px solid #2c3e66;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #e0e4ec;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: none;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    background: #2c3e66;
+    color: #ffffff;
+}
+
+.nav-links a.active {
+    background: #2c3e66;
+    color: #ffffff;
+    border-bottom: 2px solid #ff6b6b;
+}
+
+/* ===== MAIN ===== */
+main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: calc(100vh - 140px);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: #ffffff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid #d0d5dd;
+    box-shadow: none;
+}
+
+.hero h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1e2a4a;
+}
+
+.hero p {
+    font-size: 1rem;
+    color: #4a5568;
+}
+
+/* ===== CARDS ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    padding: 1.5rem;
+    transition: none;
+}
+
+.card:hover {
+    border-color: #1e2a4a;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1e2a4a;
+}
+
+.card p {
+    margin-bottom: 1.25rem;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.btn {
+    display: inline-block;
+    background: #1e2a4a;
+    color: #ffffff;
+    padding: 0.6rem 1.25rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2c3e66;
+}
+
+/* ===== CALCULATOR SECTION ===== */
+.calculator-section,
+.contact-section {
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    padding: 1.5rem;
+}
+
+.calculator-section h1,
+.contact-section h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1e2a4a;
+    border-bottom: 2px solid #1e2a4a;
+    padding-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.formula {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    background: #f0f2f5;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-left: 3px solid #1e2a4a;
+    color: #1a1a2e;
+}
+
+.calculator-card {
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.calculator-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1e2a4a;
+}
+
+/* ===== FORM ELEMENTS ===== */
+label {
+    display: block;
+    margin: 0.75rem 0 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1e2a4a;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #1a1a2e;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #1e2a4a;
+}
+
+input[readonly] {
+    background: #f0f2f5;
+    border-color: #e2e8f0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn-calc {
+    background: #1e2a4a;
+    color: #ffffff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-calc:hover {
+    background: #2c3e66;
+}
+
+.result {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #f0f2f5;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1e2a4a;
+    text-align: center;
+    border-left: 3px solid #1e2a4a;
+}
+
+/* ===== CALCULATOR TYPE BUTTONS ===== */
+.calc-type,
+.formula-select {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 1rem;
+}
+
+.calc-btn,
+.formula-btn {
+    background: #f0f2f5;
+    border: 1px solid #cbd5e1;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    color: #1e2a4a;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.calc-btn.active,
+.formula-btn.active {
+    background: #1e2a4a;
+    border-color: #1e2a4a;
+    color: #ffffff;
+}
+
+.calc-btn:hover,
+.formula-btn:hover {
+    background: #e2e8f0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ===== RESISTOR BANDS ===== */
+.resistor-bands {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.band-select {
+    text-align: left;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-card {
+    background: #f0f2f5;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+}
+
+.contact-card h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1e2a4a;
+}
+
+.contact-card p {
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+.feedback-form {
+    background: #f0f2f5;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.feedback-form h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1e2a4a;
+}
+
+/* ===== INFO NOTE ===== */
+.info-note {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #f0f2f5;
+    border-left: 3px solid #1e2a4a;
+}
+
+.info-note h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1e2a4a;
+}
+
+.info-note p {
+    font-size: 0.8rem;
+    color: #4a5568;
+    margin-bottom: 0.25rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-links {
+        justify-content: center;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+    
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .resistor-bands {
+        grid-template-columns: 1fr;
+    }
+    
+    .calc-type,
+    .formula-select {
+        gap: 0.25rem;
+    }
+    
+    .calc-btn,
+    .formula-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+    }
+}

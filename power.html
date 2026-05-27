@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мощность - Электрорасчёты</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">⚡ Электрорасчёты</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="ohm.html">Закон Ома</a></li>
+                <li><a href="power.html" class="active">Мощность</a></li>
+                <li><a href="resistor.html">Резисторы</a></li>
+                <li><a href="voltage-loss.html">Потери U</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calculator-section">
+            <h1>⚡ Расчёт электрической мощности</h1>
+            <p class="formula">P = U × I = I² × R = U² / R</p>
+            
+            <div class="calculator-card">
+                <h3>Калькулятор мощности</h3>
+                
+                <div class="formula-select">
+                    <button class="formula-btn active" data-formula="ui">P = U × I</button>
+                    <button class="formula-btn" data-formula="i2r">P = I² × R</button>
+                    <button class="formula-btn" data-formula="u2r">P = U² / R</button>
+                </div>
+
+                <!-- P = U × I -->
+                <div class="formula-group" id="ui-group">
+                    <label>Напряжение (U), В</label>
+                    <input type="number" id="voltage-ui" placeholder="Введите напряжение">
+                    <label>Ток (I), А</label>
+                    <input type="number" id="current-ui" placeholder="Введите ток">
+                    <button class="btn-calc" id="calc-ui">Рассчитать мощность</button>
+                    <div class="result" id="ui-result"></div>
+                </div>
+
+                <!-- P = I² × R -->
+                <div class="formula-group hidden" id="i2r-group">
+                    <label>Ток (I), А</label>
+                    <input type="number" id="current-i2r" placeholder="Введите ток">
+                    <label>Сопротивление (R), Ом</label>
+                    <input type="number" id="resistance-i2r" placeholder="Введите сопротивление">
+                    <button class="btn-calc" id="calc-i2r">Рассчитать мощность</button>
+                    <div class="result" id="i2r-result"></div>
+                </div>
+
+                <!-- P = U² / R -->
+                <div class="formula-group hidden" id="u2r-group">
+                    <label>Напряжение (U), В</label>
+                    <input type="number" id="voltage-u2r" placeholder="Введите напряжение">
+                    <label>Сопротивление (R), Ом</label>
+                    <input type="number" id="resistance-u2r" placeholder="Введите сопротивление">
+                    <button class="btn-calc" id="calc-u2r">Рассчитать мощность</button>
+                    <div class="result" id="u2r-result"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 СилаВольта. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Потери напряжения - Электрорасчёты</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">⚡ Электрорасчёты</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="ohm.html">Закон Ома</a></li>
+                <li><a href="power.html">Мощность</a></li>
+                <li><a href="resistor.html">Резисторы</a></li>
+                <li><a href="voltage-loss.html" class="active">Потери U</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calculator-section">
+            <h1>📉 Расчёт потерь напряжения</h1>
+            <p class="formula">ΔU = (√3 × I × L × cosφ × (R₀ + X₀ × tgφ)) / U × 100%</p>
+            
+            <div class="calculator-card">
+                <h3>Калькулятор потерь напряжения</h3>
+                
+                <div class="calc-type">
+                    <button class="calc-btn" data-system="single">Однофазная (220В)</button>
+                    <button class="calc-btn" data-system="three">Трёхфазная (380В)</button>
+                    <button class="calc-btn" data-system="high6">6 кВ</button>
+                    <button class="calc-btn" data-system="high10">10 кВ</button>
+                </div>
+
+                <!-- Однофазная сеть 220В -->
+                <div class="system-group hidden" id="single-group">
+                    <label>Напряжение сети, В</label>
+                    <input type="number" id="voltage-single" value="220" disabled>
+                    
+                    <label>Сечение провода, мм²</label>
+                    <select id="cross-section-single">
+                        <option value="1.5">1.5 мм²</option><option value="2.5">2.5 мм²</option>
+                        <option value="4">4 мм²</option><option value="6">6 мм²</option>
+                        <option value="10">10 мм²</option><option value="16">16 мм²</option>
+                        <option value="25">25 мм²</option><option value="35">35 мм²</option>
+                        <option value="50">50 мм²</option><option value="70">70 мм²</option>
+                        <option value="95">95 мм²</option><option value="120">120 мм²</option>
+                        <option value="150">150 мм²</option><option value="185">185 мм²</option>
+                        <option value="240">240 мм²</option>
+                    </select>
+
+                    <label>Материал провода</label>
+                    <select id="material-single">
+                        <option value="cu">Медь (Cu)</option>
+                        <option value="al">Алюминий (Al)</option>
+                    </select>
+
+                    <label>Ток нагрузки, А</label>
+                    <input type="number" id="current-single" placeholder="Введите ток">
+
+                    <label>Длина линии, м</label>
+                    <input type="number" id="length-single" placeholder="Введите длину">
+
+                    <label>Коэффициент мощности (cosφ)</label>
+                    <input type="number" id="cos-single" value="0.95" step="0.01">
+
+                    <button class="btn-calc" id="calc-single">Рассчитать потери</button>
+                    <div class="result" id="single-result"></div>
+                </div>
+
+                <!-- Трёхфазная сеть 380В -->
+                <div class="system-group hidden" id="three-group">
+                    <label>Напряжение сети, В</label>
+                    <input type="number" id="voltage-three" value="380" disabled>
+                    
+                    <label>Сечение провода, мм²</label>
+                    <select id="cross-section-three">
+                        <option value="1.5">1.5 мм²</option><option value="2.5">2.5 мм²</option>
+                        <option value="4">4 мм²</option><option value="6">6 мм²</option>
+                        <option value="10">10 мм²</option><option value="16">16 мм²</option>
+                        <option value="25">25 мм²</option><option value="35">35 мм²</option>
+                        <option value="50">50 мм²</option><option value="70">70 мм²</option>
+                        <option value="95">95 мм²</option><option value="120">120 мм²</option>
+                        <option value="150">150 мм²</option><option value="185">185 мм²</option>
+                        <option value="240">240 мм²</option>
+                    </select>
+
+                    <label>Материал провода</label>
+                    <select id="material-three">
+                        <option value="cu">Медь (Cu)</option>
+                        <option value="al">Алюминий (Al)</option>
+                    </select>
+
+                    <label>Ток нагрузки, А</label>
+                    <input type="number" id="current-three" placeholder="Введите ток">
+
+                    <label>Длина линии, м</label>
+                    <input type="number" id="length-three" placeholder="Введите длину">
+
+                    <label>Коэффициент мощности (cosφ)</label>
+                    <input type="number" id="cos-three" value="0.95" step="0.01">
+
+                    <button class="btn-calc" id="calc-three">Рассчитать потери</button>
+                    <div class="result" id="three-result"></div>
+                </div>
+
+                <!-- 6 кВ -->
+                <div class="system-group hidden" id="high6-group">
+                    <label>Напряжение сети, кВ</label>
+                    <input type="number" id="voltage-high6" value="6" disabled>
+                    
+                    <label>Сечение провода, мм²</label>
+                    <select id="cross-section-high6">
+                        <option value="16">16 мм²</option><option value="25">25 мм²</option>
+                        <option value="35">35 мм²</option><option value="50">50 мм²</option>
+                        <option value="70">70 мм²</option><option value="95">95 мм²</option>
+                        <option value="120">120 мм²</option><option value="150">150 мм²</option>
+                        <option value="185">185 мм²</option><option value="240">240 мм²</option>
+                    </select>
+
+                    <label>Материал провода</label>
+                    <select id="material-high6">
+                        <option value="cu">Медь (Cu)</option>
+                        <option value="al">Алюминий (Al)</option>
+                    </select>
+
+                    <label>Мощность нагрузки, кВт</label>
+                    <input type="number" id="power-high6" placeholder="Введите мощность">
+
+                    <label>Длина линии, км</label>
+                    <input type="number" id="length-high6" step="0.1" placeholder="Введите длину (км)">
+
+                    <label>Коэффициент мощности (cosφ)</label>
+                    <input type="number" id="cos-high6" value="0.95" step="0.01">
+
+                    <button class="btn-calc" id="calc-high6">Рассчитать потери</button>
+                    <div class="result" id="high6-result"></div>
+                </div>
+
+                <!-- 10 кВ -->
+                <div class="system-group hidden" id="high10-group">
+                    <label>Напряжение сети, кВ</label>
+                    <input type="number" id="voltage-high10" value="10" disabled>
+                    
+                    <label>Сечение провода, мм²</label>
+                    <select id="cross-section-high10">
+                        <option value="16">16 мм²</option><option value="25">25 мм²</option>
+                        <option value="35">35 мм²</option><option value="50">50 мм²</option>
+                        <option value="70">70 мм²</option><option value="95">95 мм²</option>
+                        <option value="120">120 мм²</option><option value="150">150 мм²</option>
+                        <option value="185">185 мм²</option><option value="240">240 мм²</option>
+                    </select>
+
+                    <label>Материал провода</label>
+                    <select id="material-high10">
+                        <option value="cu">Медь (Cu)</option>
+                        <option value="al">Алюминий (Al)</option>
+                    </select>
+
+                    <label>Мощность нагрузки, кВт</label>
+                    <input type="number" id="power-high10" placeholder="Введите мощность">
+
+                    <label>Длина линии, км</label>
+                    <input type="number" id="length-high10" step="0.1" placeholder="Введите длину (км)">
+
+                    <label>Коэффициент мощности (cosφ)</label>
+                    <input type="number" id="cos-high10" value="0.95" step="0.01">
+
+                    <button class="btn-calc" id="calc-high10">Рассчитать потери</button>
+                    <div class="result" id="high10-result"></div>
+                </div>
+
+                <div class="info-note">
+                    <h4>📌 Нормы потерь напряжения:</h4>
+                    <p>• Для осветительных сетей: ≤ 3%</p>
+                    <p>• Для силовых сетей: ≤ 5%</p>
+                    <p>• Для ВЛ 6-10 кВ: ≤ 8%</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 СилаВольта. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

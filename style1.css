@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.calculator {
+    background: #1a1a2e;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* ===== ДИСПЛЕЙ (ФИКСИРОВАННЫЙ РАЗМЕР, БЕЗ ПРОКРУТКИ) ===== */
+.display {
+    background: #0f0f1a;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    
+    /* ФИКСИРОВАННЫЕ РАЗМЕРЫ — НЕ МЕНЯЮТСЯ */
+    min-height: 120px;
+    max-height: 120px;
+    height: 120px;
+    
+    /* Отключаем прокрутку */
+    overflow: hidden;
+    
+    /* Перенос слов */
+    word-wrap: break-word;
+    word-break: break-all;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.previous-operand {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    margin-bottom: 8px;
+    
+    /* Уменьшаем шрифт при длинном тексте */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.current-operand {
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    
+    /* Автоматическое уменьшение шрифта */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+    /* Начальный размер */
+    font-size: 2.5rem;
+}
+
+/* Уменьшение шрифта для очень длинных чисел через JavaScript */
+.current-operand.small-font {
+    font-size: 1.8rem;
+}
+
+.current-operand.very-small-font {
+    font-size: 1.3rem;
+}
+
+/* ===== КНОПКИ ===== */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    background: #16213e;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-number {
+    background: #1e2a4a;
+    color: #fff;
+}
+
+.btn-number:hover {
+    background: #2a3a5c;
+}
+
+.btn-operator {
+    background: #ff6b6b;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.btn-operator:hover {
+    background: #ff5252;
+}
+
+.btn-clear {
+    background: #f39c12;
+    color: white;
+}
+
+.btn-clear:hover {
+    background: #e67e22;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+.btn-equals {
+    background: #27ae60;
+    color: white;
+    grid-column: span 1;
+}
+
+.btn-equals:hover {
+    background: #2ecc71;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+    .calculator {
+        padding: 15px;
+    }
+    
+    .buttons {
+        gap: 8px;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+    
+    .current-operand {
+        font-size: 2rem;
+    }
+    
+    .current-operand.small-font {
+        font-size: 1.5rem;
+    }
+    
+    .current-operand.very-small-font {
+        font-size: 1.1rem;
+    }
+    
+    .display {
+        min-height: 100px;
+        max-height: 100px;
+        height: 100px;
+        padding: 15px;
+    }
+}
+
+/* Анимация нажатия */
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-click {
+    animation: ripple 0.1s ease;
+}

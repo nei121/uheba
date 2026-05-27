@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резисторы - Электрорасчёты</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">⚡ Электрорасчёты</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="ohm.html">Закон Ома</a></li>
+                <li><a href="power.html">Мощность</a></li>
+                <li><a href="resistor.html" class="active">Резисторы</a></li>
+                <li><a href="voltage-loss.html">Потери U</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calculator-section">
+            <h1>🎨 Цветовая маркировка резисторов</h1>
+            <p class="formula">Определите сопротивление по цветным полосам</p>
+            
+            <div class="calculator-card">
+                <h3>Калькулятор резистора (4 полосы)</h3>
+                
+                <div class="resistor-bands">
+                    <div class="band-select">
+                        <label>1-я полоса (десятки)</label>
+                        <select id="band1">
+                            <option value="1">Коричневый (1)</option>
+                            <option value="2">Красный (2)</option>
+                            <option value="3">Оранжевый (3)</option>
+                            <option value="4">Жёлтый (4)</option>
+                            <option value="5">Зелёный (5)</option>
+                            <option value="6">Синий (6)</option>
+                            <option value="7">Фиолетовый (7)</option>
+                            <option value="8">Серый (8)</option>
+                            <option value="9">Белый (9)</option>
+                        </select>
+                    </div>
+
+                    <div class="band-select">
+                        <label>2-я полоса (единицы)</label>
+                        <select id="band2">
+                            <option value="0">Чёрный (0)</option>
+                            <option value="1">Коричневый (1)</option>
+                            <option value="2">Красный (2)</option>
+                            <option value="3">Оранжевый (3)</option>
+                            <option value="4">Жёлтый (4)</option>
+                            <option value="5">Зелёный (5)</option>
+                            <option value="6">Синий (6)</option>
+                            <option value="7">Фиолетовый (7)</option>
+                            <option value="8">Серый (8)</option>
+                            <option value="9">Белый (9)</option>
+                        </select>
+                    </div>
+
+                    <div class="band-select">
+                        <label>3-я полоса (множитель)</label>
+                        <select id="multiplier">
+                            <option value="0">Чёрный (×1)</option>
+                            <option value="1">Коричневый (×10)</option>
+                            <option value="2">Красный (×100)</option>
+                            <option value="3">Оранжевый (×1k)</option>
+                            <option value="4">Жёлтый (×10k)</option>
+                            <option value="5">Зелёный (×100k)</option>
+                            <option value="6">Синий (×1M)</option>
+                            <option value="7">Фиолетовый (×10M)</option>
+                            <option value="8">Серый (×100M)</option>
+                            <option value="9">Белый (×1G)</option>
+                        </select>
+                    </div>
+
+                    <div class="band-select">
+                        <label>4-я полоса (допуск)</label>
+                        <select id="tolerance">
+                            <option value="±1%">Коричневый (±1%)</option>
+                            <option value="±2%">Красный (±2%)</option>
+                            <option value="±5%">Золотой (±5%)</option>
+                            <option value="±10%">Серебряный (±10%)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn-calc" id="calc-resistor">Рассчитать</button>
+                <div class="result" id="resistor-result"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 СилаВольта. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -576,15 +576,4 @@ footer {
     background: #ffffff;
 }
 
-/* Если нужно использовать плейсхолдер */
-.avatar-placeholder {
-    width: 150px;
-    height: 150px;
-    background: #1e2a4a;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    color: #ffffff;
-}
+ 

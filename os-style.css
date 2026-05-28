@@ -1,0 +1,506 @@
+/* ===== СТИЛЬ ОПЕРАЦИОННОЙ СИСТЕМЫ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    background: #1a1a2e;
+    height: 100vh;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+/* ===== РАБОЧИЙ СТОЛ ===== */
+.desktop {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== ИКОНКИ РАБОЧЕГО СТОЛА ===== */
+.desktop-icons {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.desktop-icon:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.desktop-icon .icon {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+}
+
+.desktop-icon .icon-label {
+    font-size: 0.75rem;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 #000000;
+}
+
+/* ===== ПАНЕЛЬ ЗАДАЧ ===== */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: rgba(30, 42, 74, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 100;
+}
+
+.start-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #4d9eff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.start-button:hover {
+    background: #3a7fd4;
+}
+
+.start-button .start-icon {
+    font-size: 1.2rem;
+}
+
+.taskbar-icons {
+    display: flex;
+    gap: 5px;
+}
+
+.taskbar-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 1.2rem;
+}
+
+.taskbar-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.taskbar-time {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+}
+
+/* ===== ОКНА ===== */
+.window {
+    position: absolute;
+    background: #1e1e2e;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 50;
+    min-width: 300px;
+    min-height: 400px;
+}
+
+.window.active {
+    z-index: 60;
+    border-color: #4d9eff;
+}
+
+.window-header {
+    background: rgba(30, 42, 74, 0.9);
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.window-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.window-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.window-controls span {
+    cursor: pointer;
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.window-controls span:hover {
+    opacity: 1;
+}
+
+.close-btn:hover {
+    color: #4d9eff;
+}
+
+.window-content {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #2a2a3e;
+}
+
+/* ===== МЕНЮ ПУСК ===== */
+.start-menu {
+    position: fixed;
+    bottom: 55px;
+    left: 10px;
+    width: 300px;
+    background: rgba(30, 42, 74, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 200;
+    overflow: hidden;
+    display: none;
+}
+
+.start-menu.show {
+    display: block;
+}
+
+.start-menu-header {
+    padding: 20px;
+    background: #4d9eff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.start-menu-user-icon {
+    font-size: 2rem;
+}
+
+.start-menu-user-info h4 {
+    font-size: 1rem;
+}
+
+.start-menu-user-info p {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.start-menu-items {
+    padding: 10px;
+}
+
+.start-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.start-menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.start-menu-item .item-icon {
+    font-size: 1.2rem;
+}
+
+/* ===== КАЛЬКУЛЯТОР В ОКНЕ ===== */
+.window-calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.window-calculator .display {
+    background: #0f0f1a;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: right;
+    min-height: 80px;
+}
+
+.window-calculator .current-operand {
+    font-size: 1.8rem;
+    color: #ffffff;
+}
+
+.window-calculator .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.window-calculator .btn {
+    background: #3a3a5e;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.window-calculator .btn-operator {
+    background: #4d9eff;
+}
+
+.window-calculator .btn-clear {
+    background: #f39c12;
+}
+
+.window-calculator .btn-equals {
+    background: #27ae60;
+}
+
+/* ===== ФОРМЫ В ОКНАХ ===== */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    background: #3a3a5e;
+    border: 1px solid #5a5a7e;
+    border-radius: 6px;
+    color: #ffffff;
+}
+
+.btn-calc {
+    background: #4d9eff;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    width: 100%;
+}
+
+.result {
+    margin-top: 10px;
+    padding: 10px;
+    background: #0f0f1a;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* ===== СКРОЛЛ ===== */
+.window-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.window-content::-webkit-scrollbar-track {
+    background: #1e1e2e;
+}
+
+.window-content::-webkit-scrollbar-thumb {
+    background: #4d9eff;
+    border-radius: 3px;
+}
+
+/* ===== ФОНОВЫЕ ЦВЕТА ДЛЯ ВСЕХ ЭЛЕМЕНТОВ ===== */
+.window,
+.window-content,
+.window-calculator,
+.form-group,
+.form-group label,
+.form-group input,
+.form-group select,
+.btn-calc,
+.result,
+.os-system-btn {
+    background-color: #2a2a3e;
+}
+
+/* Фон для окон */
+.window {
+    background: #2a2a3e;
+}
+
+.window-content {
+    background: #2a2a3e;
+    color: #ffffff;
+}
+
+/* Формы и поля ввода */
+.form-group {
+    background: #2a2a3e;
+}
+
+.form-group label {
+    background: #2a2a3e;
+    color: #cccccc;
+}
+
+.form-group input,
+.form-group select {
+    background: #3a3a5e;
+    border: 1px solid #5a5a7e;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 8px;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4d9eff;
+}
+
+/* Кнопки */
+.btn-calc {
+    background: #4d9eff;
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-calc:hover {
+    background: #3a7fd4;
+}
+
+/* Результат */
+.result {
+    background: #3a3a5e;
+    border: 1px solid #5a5a7e;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    color: #4d9eff;
+    font-weight: bold;
+}
+
+/* Кнопки переключения типов сетей */
+.os-system-btn {
+    background: #3a3a5e;
+    border: 1px solid #5a5a7e;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.os-system-btn.active {
+    background: #4d9eff;
+    border-color: #4d9eff;
+}
+
+.os-system-btn:hover {
+    background: #4d9eff;
+}
+
+/* Заголовки в окнах */
+.window-content h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.window-content .formula {
+    background: #3a3a5e;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+/* Горизонтальная линия */
+.window-content hr {
+    border-color: #5a5a7e;
+}
+
+/* Текст в результатах */
+.result {
+    color: #ffffff;
+}
+
+/* Стиль для групп переключения */
+.calc-type-os {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    background: #2a2a3e;
+}
+
+/* Аватар в кружочке */
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #4d9eff;
+    background: #3a3a5e;
+}
+
+.avatar-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в Электрорасчёты OS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: #2a2a3e;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid #4d9eff;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header .logo {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .login-header h1 {
+            color: #ffffff;
+            font-size: 1.5rem;
+        }
+
+        .login-header p {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ccc;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: #3a3a5e;
+            border: 1px solid #5a5a7e;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #4d9eff;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: #4d9eff;
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-login:hover {
+            background: #3a7fd4;
+        }
+
+        .error-message {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid #ff6b6b;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 15px;
+            text-align: center;
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #4d9eff;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                 
+                <h1>Электрорасчёты OS</h1>
+                <p>Введите пароль для доступа</p>
+            </div>
+            
+            <div class="form-group">
+                <label>🔐 Пароль</label>
+                <input type="password" id="passwordInput" placeholder="Введите пароль" autofocus>
+            </div>
+            
+            <button class="btn-login" onclick="checkPassword()">Войти</button>
+            
+            <div class="error-message" id="errorMessage">
+                ⚠️ Неверный пароль! Попробуйте ещё раз.
+            </div>
+            
+            <div class="back-link">
+                <a href="index.html">← Вернуться на главную</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const CORRECT_PASSWORD = "121";
+          // нечего сюда смотреть
+    function checkPassword() {
+    const passwordInput = document.getElementById('passwordInput');
+    const errorMessage = document.getElementById('errorMessage');
+    const password = passwordInput.value;
+    
+    if (password === CORRECT_PASSWORD) {
+        sessionStorage.setItem('os_authenticated', 'true');
+        window.location.href = 'index-os.html';
+    } else {
+        errorMessage.classList.add('show');
+        passwordInput.value = '';
+        passwordInput.focus();
+    }
+}
+        
+        // Обработка нажатия Enter
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>

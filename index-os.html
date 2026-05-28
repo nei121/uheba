@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электрорасчёты OS</title>
+    <link rel="stylesheet" href="os-style.css">
+</head>
+<body>
+
+    <script>
+    // Проверка, был ли вход через пароль
+    if (!sessionStorage.getItem('os_authenticated')) {
+        window.location.href = 'login.html';
+    }
+</script>
+    <div class="desktop">
+        <!-- ИКОНКИ РАБОЧЕГО СТОЛА -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" ondblclick="openCalculator()">
+                <div class="icon">🧮</div>
+                <div class="icon-label">Калькулятор</div>
+            </div>
+            <div class="desktop-icon" ondblclick="openOhm()">
+                <div class="icon">📐</div>
+                <div class="icon-label">Закон Ома</div>
+            </div>
+            <div class="desktop-icon" ondblclick="openPower()">
+                <div class="icon">⚡</div>
+                <div class="icon-label">Мощность</div>
+            </div>
+             <div class="desktop-icon" ondblclick="openVoltageLoss()">
+                   <div class="icon">📉</div>
+                   <div class="icon-label">Потери U</div>
+               </div>
+            <div class="desktop-icon" ondblclick="openAbout()">
+                <div class="icon">👤</div>
+                <div class="icon-label">Обо мне</div>
+            </div>
+        </div>
+
+        <!-- КОНТЕЙНЕР ДЛЯ ОКОН -->
+        <div id="windows-container"></div>
+
+        <!-- ПАНЕЛЬ ЗАДАЧ -->
+        <div class="taskbar">
+            <div class="start-button" id="start-button" onclick="toggleStartMenu()">
+                <span class="start-icon">🪟</span>
+                <span>Пуск</span>
+            </div>
+            <div class="taskbar-icons">
+                <div class="taskbar-icon" onclick="openCalculator()">🧮</div>
+                <div class="taskbar-icon" onclick="openOhm()">📐</div>
+                <div class="taskbar-icon" onclick="openPower()">⚡</div>
+                <div class="taskbar-icon" onclick="openAbout()">👤</div>
+                <div class="taskbar-icon" onclick="openVoltageLoss()">📉</div>
+            </div>
+            <div class="taskbar-time" id="taskbar-time"></div>
+        </div>
+
+        <!-- МЕНЮ ПУСК -->
+        <div class="start-menu" id="start-menu">
+            <div class="start-menu-header">
+                <div class="start-menu-user-icon">👨‍💻</div>
+                <div class="start-menu-user-info">
+                    <h4>admin</h4>
+                    <p>Инженер-электрик</p>
+                </div>
+            </div>
+            <div class="start-menu-items">
+                <div class="start-menu-item" onclick="openCalculator(); toggleStartMenu()">
+                    <span class="item-icon">🧮</span>
+                    <span>Калькулятор</span>
+                </div>
+                <div class="start-menu-item" onclick="openOhm(); toggleStartMenu()">
+                    <span class="item-icon">📐</span>
+                    <span>Закон Ома</span>
+                </div>
+                <div class="start-menu-item" onclick="openPower(); toggleStartMenu()">
+                    <span class="item-icon">⚡</span>
+                    <span>Расчёт мощности</span>
+                </div>
+               <div class="start-menu-item" onclick="openVoltageLoss(); toggleStartMenu()">
+                    <span class="item-icon">📉</span>
+                    <span>Потери напряжения</span>
+                </div>
+                <div class="start-menu-item" onclick="openAbout(); toggleStartMenu()">
+                    <span class="item-icon">👤</span>
+                    <span>Обо мне</span>
+                </div>
+
+                  <div style="height: 1px; background: #4d9eff; margin: 10px 0;"></div>
+    
+           <div class="start-menu-item" onclick="goToMainPage(); toggleStartMenu()">
+        <span class="item-icon">🏠</span>
+        <span>На главную</span>
+      </div>
+       <div class="start-menu-item" onclick="logoutAndExit(); toggleStartMenu()">
+        <span class="item-icon">🚪</span>
+        <span>Выход</span>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="os-script.js"></script>
+</body>
+</html>

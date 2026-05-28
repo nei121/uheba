@@ -404,3 +404,187 @@ footer {
         font-size: 0.75rem;
     }
 }
+/* ===== СТРАНИЦА: ОБО МНЕ ===== */
+.about-section {
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    padding: 1.5rem;
+}
+
+.about-section h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1e2a4a;
+    border-bottom: 2px solid #1e2a4a;
+    padding-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.about-card {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    background: #f0f2f5;
+    padding: 1.5rem;
+    border-left: 3px solid #1e2a4a;
+}
+
+.about-avatar {
+    flex-shrink: 0;
+}
+
+.avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    background: #1e2a4a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #ffffff;
+}
+
+.about-info {
+    flex: 1;
+}
+
+.about-info h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e2a4a;
+    margin-bottom: 0.5rem;
+}
+
+.about-info .position {
+    color: #ff6b6b;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.about-info .description {
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.about-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.detail-card {
+    background: #f0f2f5;
+    padding: 1.25rem;
+    border: 1px solid #e2e8f0;
+}
+
+.detail-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1e2a4a;
+    border-left: 3px solid #ff6b6b;
+    padding-left: 0.75rem;
+}
+
+.detail-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.detail-card li {
+    padding: 0.5rem 0;
+    color: #4a5568;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.detail-card li:last-child {
+    border-bottom: none;
+}
+
+.detail-card ul.contact-links li {
+    border-bottom: none;
+}
+
+.detail-card a {
+    color: #1e2a4a;
+    text-decoration: none;
+}
+
+.detail-card a:hover {
+    color: #ff6b6b;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    color: #1e2a4a;
+    border-radius: 4px;
+}
+
+.about-note {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f0f2f5;
+    border-left: 3px solid #1e2a4a;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+/* ===== АДАПТИВ ДЛЯ СТРАНИЦЫ ОБО МНЕ ===== */
+@media (max-width: 768px) {
+    .about-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .about-info h2 {
+        font-size: 1.3rem;
+    }
+    
+    .avatar-placeholder {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+    }
+    
+    .about-details {
+        grid-template-columns: 1fr;
+    }
+}
+/* Стиль для изображения */
+.avatar-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1e2a4a;
+    background: #ffffff;
+}
+
+/* Если нужно использовать плейсхолдер */
+.avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    background: #1e2a4a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #ffffff;
+}

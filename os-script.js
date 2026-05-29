@@ -1,10 +1,9 @@
 // ===== ОПЕРАЦИОННАЯ СИСТЕМА =====
 let activeWindow = null;
 let windowZIndex = 50;
-// ===== ОТКРЫТИЕ КОНСТРУКТОРА MATILDA =====
-function openMaTilda() {
-    // Открываем MaTilda в новом окне
-    window.open('MaTilda/index.html', '_blank');
+// ===== ОТКРЫТИЕ КОНСТРУКТОРА MuTilda =====
+function openMuTilda() {
+    window.open('MuTilda/index.html', '_blank');
 }
 // ===== НА ГЛАВНУЮ СТРАНИЦУ =====
 function goToMainPage() {

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Электрорасчёты</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">⚡ Электрорасчёты</div>
+            <ul class="nav-links">
+               <li><a href="login.html">ОС-версия</a></li>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="ohm.html">Закон Ома</a></li>
+                <li><a href="power.html">Мощность</a></li>
+                <li><a href="resistor.html">Резисторы</a></li>
+                <li><a href="voltage-loss.html">Потери U</a></li>
+                 
+                <li><a href="contact.html" >Контакты</a></li>
+                  <li><a href="about.html"  >Обо мне</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h1>📞 Контакты</h1>
+            
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <p>silavolta@yandex.ru</p>
+                </div>
+            
+                <div class="contact-card">
+                    <h3>💬 Вопросы и предложения</h3>
+                    <p>silavolta@yandex.ru</p>
+                </div>
+            </div>
+
+            <div class="feedback-form">
+                <h3>📝 Обратная связь</h3>
+                <form id="feedbackForm">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Ваш email" required>
+                    <textarea placeholder="Ваше сообщение" rows="5" required></textarea>
+                    <button type="submit" class="btn-calc">Отправить</button>
+                </form>
+                <div id="form-message" class="result"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 СилаВольта. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

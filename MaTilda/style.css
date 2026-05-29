@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    background: #1e1e2e;
+    overflow: hidden;
+}
+
+/* ===== КОНТЕЙНЕР ===== */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ===== ПАНЕЛЬ ИНСТРУМЕНТОВ ===== */
+.toolbar {
+    background: #2a2a3e;
+    border-bottom: 1px solid #4d9eff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #4d9eff;
+    padding: 5px 15px;
+    border-radius: 25px;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logo-beta {
+    font-size: 0.7rem;
+    background: rgba(255,255,255,0.3);
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.toolbar-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tool-btn {
+    background: #3a3a5e;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.tool-btn:hover {
+    background: #4d9eff;
+    transform: translateY(-2px);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.action-btn.preview {
+    background: #27ae60;
+    color: #fff;
+}
+
+.action-btn.preview:hover {
+    background: #2ecc71;
+}
+
+.action-btn.save {
+    background: #4d9eff;
+    color: #fff;
+}
+
+.action-btn.save:hover {
+    background: #3a7fd4;
+}
+
+.action-btn.clear {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.action-btn.clear:hover {
+    background: #c0392b;
+}
+
+/* ===== РАБОЧАЯ ОБЛАСТЬ ===== */
+.workspace {
+    flex: 1;
+    overflow-y: auto;
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+.canvas {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    min-height: calc(100vh - 120px);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 80px 20px;
+    color: #aaa;
+}
+
+.empty-message span {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ===== БЛОКИ ===== */
+.site-block {
+    position: relative;
+    margin: 10px 0;
+    padding: 15px;
+    border: 2px dashed transparent;
+    border-radius: 8px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.site-block:hover {
+    border-color: #4d9eff;
+    background: rgba(77, 158, 255, 0.05);
+}
+
+.site-block.selected {
+    border-color: #4d9eff;
+    background: rgba(77, 158, 255, 0.1);
+}
+
+.block-controls {
+    position: absolute;
+    top: -12px;
+    right: 10px;
+    display: none;
+    gap: 5px;
+    background: #2a2a3e;
+    padding: 4px 8px;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.site-block:hover .block-controls {
+    display: flex;
+}
+
+.block-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.block-controls .move-up:hover { background: #4d9eff; }
+.block-controls .move-down:hover { background: #4d9eff; }
+.block-controls .delete:hover { background: #e74c3c; }
+
+/* Типы блоков */
+.block-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.block-heading h2 {
+    font-size: 1.8rem;
+    color: #1e2a4a;
+    margin: 0;
+}
+
+.block-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.block-button {
+    text-align: center;
+}
+
+.block-button a {
+    display: inline-block;
+    background: #4d9eff;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.block-separator hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, #4d9eff, #fff);
+}
+
+.block-html {
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: monospace;
+}
+
+/* ===== ПАНЕЛЬ СВОЙСТВ ===== */
+.properties-panel {
+    position: fixed;
+    right: -350px;
+    top: 60px;
+    width: 350px;
+    height: calc(100vh - 60px);
+    background: #2a2a3e;
+    border-left: 1px solid #4d9eff;
+    transition: right 0.3s ease;
+    z-index: 100;
+}
+
+.properties-panel.open {
+    right: 0;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #4d9eff;
+}
+
+.panel-header h3 {
+    color: #fff;
+}
+
+.close-panel {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.panel-content {
+    padding: 15px;
+    color: #fff;
+}
+
+.property-group {
+    margin-bottom: 15px;
+}
+
+.property-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc;
+    font-size: 0.85rem;
+}
+
+.property-group input,
+.property-group textarea,
+.property-group select {
+    width: 100%;
+    padding: 8px;
+    background: #3a3a5e;
+    border: 1px solid #5a5a7e;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.property-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 768px) {
+    .toolbar {
+        flex-direction: column;
+    }
+    
+    .properties-panel {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+/* ===== ЗАГРУЗЧИК ИЗОБРАЖЕНИЙ ===== */
+.image-uploader {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.image-uploader .uploaded-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.image-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.image-upload-btn {
+    background: #4d9eff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.image-upload-btn:hover {
+    background: #3a7fd4;
+}
+
+.image-change-btn {
+    background: #f39c12;
+    margin-left: 10px;
+}
+
+.image-change-btn:hover {
+    background: #e67e22;
+}
+
+/* В режиме предпросмотра скрываем кнопки управления изображениями */
+.preview-mode .image-controls {
+    display: none;
+}

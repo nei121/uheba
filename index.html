@@ -3,58 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaTilda - Конструктор сайтов</title>
+    <title>Электрорасчёты - Главная</title>
     <link rel="stylesheet" href="style.css">
 </head>
- <script src="header-footer.js"></script>
 <body>
-    <div class="app-container">
-        <!-- Панель инструментов -->
-        <div class="toolbar">
-            <div class="logo">
-                <span class="logo-icon">🎨</span>
-                <span class="logo-text">MaTilda</span>
-                <span class="logo-beta">beta</span>
-            </div>
-            <div class="toolbar-buttons">
-                <button class="tool-btn" onclick="addBlock('text')">📝 Текст</button>
-                <button class="tool-btn" onclick="addBlock('image')">🖼️ Изображение</button>
-                <button class="tool-btn" onclick="addBlock('heading')">📌 Заголовок</button>
-                <button class="tool-btn" onclick="addBlock('button')">🔘 Кнопка</button>
-                <button class="tool-btn" onclick="addBlock('html')">🔧 HTML код</button>
-                <button class="tool-btn" onclick="addBlock('separator')">➖ Разделитель</button>
-                <button class="tool-btn" onclick="openPageManager()">📄 Страницы</button>
-                <button class="tool-btn" onclick="openHeaderSettings()">🏠 Шапка</button>
-                <button class="tool-btn" onclick="openFooterSettings()">📞 Подвал</button>
-            </div>
-            <div class="action-buttons">
-                <button class="action-btn preview" onclick="previewSite()">👁️ Просмотр</button>
-                <button class="action-btn save" onclick="saveSite()">💾 Сохранить</button>
-                <button class="action-btn clear" onclick="clearSite()">🗑️ Очистить</button>
-            </div>
-        </div>
+    <header>
+        <nav>
+            <div class="logo"> Электрорасчёты</div>
+            <ul class="nav-links">
+                <li><a href="login.html">ОС-версия</a></li>
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="ohm.html">Закон Ома</a></li>
+                <li><a href="power.html">Мощность</a></li>
+                <li><a href="resistor.html">Резисторы</a></li>
+                <li><a href="voltage-loss.html">Потери U</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+                <li><a href="about.html" >Обо мне</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- Рабочая область -->
-        <div class="workspace">
-            <div class="canvas" id="canvas">
-                <div class="empty-message" id="emptyMessage">
-                    <span>➕</span>
-                    <p>Добавьте первый блок с помощью панели инструментов</p>
-                </div>
-            </div>
-        </div>
+    <main>
+        <section class="hero">
+            <h1>⚡ Электротехнические расчёты</h1>
+            <p>Быстрые и точные вычисления для электроники и электротехники</p>
+        </section>
 
-        <!-- Боковая панель свойств -->
-        <div class="properties-panel" id="propertiesPanel">
-            <div class="panel-header">
-                <h3>⚙️ Свойства</h3>
-                <button class="close-panel" onclick="closeProperties()">✕</button>
+        <section class="cards">
+            <div class="card">
+                <h2>📐 Закон Ома</h2>
+                <p>Расчёт напряжения, тока и сопротивления по формуле U = I × R</p>
+                <a href="ohm.html" class="btn">Перейти</a>
             </div>
-            <div class="panel-content" id="panelContent">
-                <p style="color: #888; text-align: center;">Выберите блок для редактирования</p>
+            <div class="card">
+                <h2>⚡ Мощность</h2>
+                <p>Расчёт электрической мощности по формулам P = U × I, P = I² × R</p>
+                <a href="power.html" class="btn">Перейти</a>
             </div>
-        </div>
-    </div>
+            <div class="card">
+                <h2>🎨 Цветовая маркировка</h2>
+                <p>Определение сопротивления резистора по цветным полосам</p>
+                <a href="resistor.html" class="btn">Перейти</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 СилаВольта. Все права защищены.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
